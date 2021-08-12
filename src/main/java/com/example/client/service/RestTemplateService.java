@@ -4,9 +4,11 @@ import java.net.URI;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.example.client.dto.UserRequest;
 import com.example.client.dto.UserResponse;
 
 @Service
@@ -58,5 +60,29 @@ public class RestTemplateService {
 		System.out.println("@ BODY 확인: "+result2.getBody());
 		
 		return result2.getBody();
+	}
+	
+	public void post() {
+		
+		URI uri = UriComponentsBuilder
+				.fromUriString("http://localhost:9090")
+				.path("/api/server/user/{userId}/name/{userName}")
+				.encode()
+				.build()
+				//위 PathVariable과 expand()안 콤마로 순서대로 매칭
+				.expand("wony", "choi")
+				.toUri();
+		
+		System.out.println("@ uri.toString(): " + uri.toString());
+		
+		UserRequest req = new UserRequest();
+		req.setAge(44);
+		req.setName("최정원");
+		
+		RestTemplate rt = new RestTemplate();
+		ResponseEntity<UserResponse> res = rt.postForEntity(uri, req, UserResponse.class);
+		System.out.println("@ HTTP CODE확인: "+res.getStatusCode());
+		System.out.println("@ HTTP Header확인: "+res.getHeaders());
+		System.out.println("@ BODY 확인: "+res.getBody());
 	}
 }
