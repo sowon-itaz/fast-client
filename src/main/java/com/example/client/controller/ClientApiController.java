@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.client.dto.Req;
 import com.example.client.dto.UserResponse;
 import com.example.client.service.RestTemplateService;
 
@@ -21,7 +22,7 @@ public class ClientApiController {
 	
 	@GetMapping("")
 	public UserResponse getHello() {
-		
+		log.info("get메서드 호출");
 		return service.hello();
 	}
 	
@@ -29,5 +30,17 @@ public class ClientApiController {
 	public void post() {
 		log.info("post메서드 호출");
 		service.post();
+	}
+
+	@GetMapping("/exchange")
+	public UserResponse exchange() {
+		log.info("exchange메서드 호출");
+		return service.exchange();
+	}
+	
+	@GetMapping("/genericExchange")
+	public Req<UserResponse> genericExchange() {
+		log.info("genericExchange메서드 호출");
+		return service.genericExchange();
 	}
 }
