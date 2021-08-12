@@ -1,4 +1,4 @@
-package com.example.inspector.service;
+package com.example.client.service;
 
 import java.net.URI;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.example.inspector.dto.UserResponse;
+import com.example.client.dto.UserResponse;
 
 @Service
 public class RestTemplateService {
@@ -31,11 +31,11 @@ public class RestTemplateService {
 		 * =====================================================================
 		 * 두 방식 다 동일한 결과를 나타냄
 		 * 1. String으로 테스트
-		 * 호출: http://localhost:8080/api/client
+		 * 호출: http://localhost:8083/api/client
 		 * 결과: 안녕 나는 클라이언트야, 내가 사라져볼께 얍! 안녕 나는 서버야
 		 * 
 		 * 2. UserResponse로 json 받기
-		 * 호출: http://localhost:8080/api/client
+		 * 호출: http://localhost:8083/api/client
 		 * 결과: {
 		 *		    "name": "차지연",
 		 *		    "age": 33

@@ -1,12 +1,12 @@
-package com.example.inspector.controller;
+package com.example.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.inspector.dto.UserResponse;
-import com.example.inspector.service.RestTemplateService;
+import com.example.client.dto.UserResponse;
+import com.example.client.service.RestTemplateService;
 
 @RestController
 @RequestMapping("/api/client")
