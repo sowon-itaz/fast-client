@@ -122,6 +122,15 @@ public class RestTemplateService {
 	}
 	
 	// 내가 원하는 Req<UserResponse> 타입의 JSON형태 주고 받기
+	/*{
+	    "header": {
+	        "resCode": null
+	    },
+	    "responseBody": {
+	        "name": "가나다",
+	        "age": 55
+	    }
+	}*/
 	public Req<UserResponse> genericExchange() {
 		
 		URI uri = UriComponentsBuilder
