@@ -17,6 +17,9 @@ public class RestTemplateService {
 		URI uri = UriComponentsBuilder
 				.fromUriString("http://localhost:9090")
 				.path("/api/server")
+				//쿼리파람을 사용할 수 있다.
+				.queryParam("name", "신경숙")
+				.queryParam("age", 22)
 				.encode()
 				.build()
 				.toUri();
@@ -37,8 +40,8 @@ public class RestTemplateService {
 		 * 2. UserResponse로 json 받기
 		 * 호출: http://localhost:8083/api/client
 		 * 결과: {
-		 *		    "name": "차지연",
-		 *		    "age": 33
+		 *		    "name": "신경숙",
+		 *		    "age": 22
 		 *		}
 		 */
 		

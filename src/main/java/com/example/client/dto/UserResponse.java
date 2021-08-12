@@ -7,4 +7,3 @@ public class UserResponse {
 	private String name;
 	private int age;
 }
-
